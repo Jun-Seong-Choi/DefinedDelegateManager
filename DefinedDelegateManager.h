@@ -6,20 +6,20 @@
 #define BIND( Syntax )\
 {\
     Syntax;\
-})
+}
 #define DISPATCH( Name, ... )\
 {\
-    DefinedDelegateManager::Myself->Name.Broadcast(__VA_ARGS__)\
+    UDefinedDelegateManager::Myself->Name.Broadcast( __VA_ARGS__ );\
 }
 #define REMOVE( Name, DelegateHandle )\
-if(DelegateHandle.IsValid() && DefinedDelegateManager::Myself)\
+if(DelegateHandle.IsValid() && UDefinedDelegateManager::Myself)\
 {\
-    DefinedDelegateManager::Myself->Name.Remove( DelegateHandle )\
+    UDefinedDelegateManager::Myself->Name.Remove( DelegateHandle );\
 }
 #define CLEAR( Name )\
-if(DefinedDelegateManager::Myself)\
+if(UDefinedDelegateManager::Myself)\
 {\
-    DefinedDelegateManager::Myself->Name.Clear()\
+    UDefinedDelegateManager::Myself->Name.Clear();\
 }
 
 #define DEFINE_TYPE( Name )   FDelegate##Name
